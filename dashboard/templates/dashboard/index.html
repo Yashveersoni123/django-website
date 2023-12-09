@@ -1,0 +1,82 @@
+{% extends "dashboard/header.html" %}
+
+{% block body%}
+  <div class="container col-md-9 border d-flex  " style="flex-direction: column;">
+    <div class="container d-flex mt-4" style="height: max-content;">
+      <div class="container col-md-2 border text-center" style="height: max-content;">
+        <h4 class="m-0">Articles</h4>
+        <span>20</span>
+      </div>
+      <div class="container col-md-2 border text-center" style="height: max-content;"> 
+        <h4 class="m-0">Users</h4>
+        <span>20</span></div>
+      <div class="container col-md-2 border text-center" style="height: max-content;"> 
+        <h4 class="m-0">Comments</h4>
+        <span>20</span></div>
+      <div class="container col-md-2 border text-center" style="height: max-content;"> 
+        <h4 class="m-0">Visitors</h4>
+        <span>20</span>
+      </div>
+    </div>
+    <div class="container mt-4 ">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center"  style="width: 50px;">No</th>
+            <th scope="col">Title</th>
+            <th scope="col"  style="width: 50px;">Category</th>
+            <th scope="col" class="text-center" style="width: 200px;">Date</th>
+            <th scope="col" style="width: 50px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for datas in data %}
+          <tr>
+            <th scope="row" class="text-center">{{forloop.counter}}</th>
+            <td>{{datas.title}}</td>
+            <td class="text-center">Technology</td>
+            <td class="text-center">{{datas.created_at}}</td>
+            <td class="text-center">
+              <a class="editicon" href="edit/{{datas.slug}}" style="text-decoration:none;"><i class="fa-solid fa-pen-to-square"></i></a>
+              <i class="fa-solid fa-trash"></i>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <nav aria-label="...">
+        <ul class="pagination d-flex justify-content-center">
+          {% if data.has_previous %}
+          <li class="page-item ">
+            <a class="page-link" href="/dashboard/?page={{data.previous_page_number}}" tabindex="-1">Preview</a>
+          </li>
+          {% endif %}
+          {% for total in totalpagelist %}
+          {% if not forloop.last %}
+            <li class="page-item " >
+              <a class="page-link {% if total == currentpage %}active{% endif %} " href="/dashboard/?page={{ total }}"  tabindex="-1">{{ total }}</a>
+            </li>
+          {% endif %}
+          {% if forloop.last %}
+            <li class="page-item">
+              <a class="page-link" href="/dashboard/?page={{ totalpagelist|last }}" tabindex="-1">...</a>
+            </li>
+           <li class="page-item {% if total == currentpage %}active{% endif %}"><a class="page-link" href="/dashboard/?page={{lastpage}}">{{lastpage}}</a></li>
+
+          {% endif %}
+
+        {% endfor %}
+      
+          {% if data.has_next %}
+          <li class="page-item">
+            <a class="page-link"  href="/dashboard/?page={{data.next_page_number}}">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+ 

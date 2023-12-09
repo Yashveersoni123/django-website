@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+/* Add your custom styles here */
+/* Adjustments for the header section */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(72, 79, 92);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #555;
+}
+:root {
+  --background-light: #eef5ff;
+  --text-light: #000;
+  --background-white:#fff;
+  --background-dark: rgb(17,24,39);
+  --div-dark: rgb(31,41,55);
+  --text-dark: #eef5ff;
+  --border-dark:#c5c5c5;
+}
+
+.dark {
+  background-color: var(--div-dark);
+  color: var(--text-dark);
+}
+.usersidebar img {
+  max-width: 100%!important; 
+  height: auto!important; 
+  display: block!important; 
+}
+.darkmode {
+  display: none;
+}
+nav{
+  font-weight: 600;
+}
+h5{
+  font-family: 'Roboto', sans-serif;
+  color:var(--text-dark) ;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode .activelinks
+{
+  background-color: var(--background-dark);
+}
+body:not(.dark-mode) .activelinks{
+  background-color: var(--background-white);
+  
+}
+body.dark-mode .hover:hover
+{
+  background-color: #1f2937!important;
+}
+body:not(.dark-mode) .hover:hover
+{
+  background-color: rgb(150, 149, 149)!important;
+  color: white;
+}
+body.dark-mode .pagenumber{
+  color: var(--text-dark);
+  background-color: var(--background-dark);
+}
+
+body:not(.dark-mode) .pagenumber{
+  color: var(--text-light);
+  
+}
+body.dark-mode #searchInput::placeholder {
+  color: rgb(255, 255, 255); /* Change the placeholder text color */
+}
+body.dark-mode .media{
+  color: var(--text-dark);
+  background-color: var(--background-dark);
+}
+body:not(.dark-mode) .media{
+  border: 1px solid var(--border-dark);
+}
+body.dark-mode .hreftag,
+body.dark-mode h5 {
+  color: var(--text-dark); /* Text color for dark mode */
+}
+body:not(.dark-mode) .hreftag,
+body:not(.dark-mode) h5 {
+  color: var(--text-light); /* Text color for light mode */
+}
+body.dark-mode .sidebar,
+body.dark-mode .usersidebar
+{
+  color: var(--text-dark); /* Text color for dark mode */
+  background-color: var(--div-dark); /* Background color for dark mode */
+  box-shadow: none;
+  border: none;
+}
+.usersidebar{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+/* Styles for light mode */
+body:not(.dark-mode) .sidebar,
+body:not(.dark-mode) .dark
+ {
+  color: var(--text-light); /* Text color for light mode */
+  background-color: var(--background-light); /* Background color for light mode */
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+  color:var(--text-dark);
+}
+.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.header {
+  color: black;
+  text-align: center;
+  padding: 100px 0;
+}
+body:not(.dark-mode) .hero{
+  background-image: linear-gradient(to right top, #8e2de2, #8023e1, #7119e1, #600de0, #4a00e0);
+}
+body.dark-mode .hero{
+  background-image: linear-gradient(to right top, #141e30, #182539, #1c2c42, #20334b, #243b55);
+
+}
+
+/* Style for blog post cards */
+.card {
+  margin-bottom: 20px;
+}
+
+body:not(.dark-mode) .knockout{
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50pt;
+  font-weight: 900;
+  background: linear-gradient(294deg, #5df0ff 33%, rgb(18 18 18 / 15%) 33%), linear-gradient(99deg, #ffffff 34%, #000000 34%);
+  background-size: 400%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-animation: Gradient 10s cubic-bezier(0.32, 0.13, 0.6, 0.67) infinite;
+  -moz-animation: Gradient 5s ease infinite;
+}
+body.dark-mode .knockout{
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50pt;
+  font-weight: 900;
+
+  background: linear-gradient(294deg, #5df0ff 33%, rgb(18 18 18 / 15%) 33%), linear-gradient(99deg, #ffffff 34%, #e203ff 34%);
+  background-size: 400%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-animation: Gradient 10s cubic-bezier(0.32, 0.13, 0.6, 0.67) infinite;
+  -moz-animation: Gradient 5s ease infinite;
+}
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 10% 100%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+.contact-section {
+  padding: 60px 0;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+
+
+/* Style for the blog post content */
+.blog-post {
+  margin-bottom: 30px;
+}
+
+/* Style for related posts or comments section */
+.related-posts {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Sidebar styles */
+
+
+.sidebar {
+  padding: 20px;
+}
+
+
+
+.sidebar-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #0069d9;
+}
+
+/* popover   */
+
+.pop{
+  display: none;
+}
+.popov{
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.card{
+	background-color: #fff;
+	width: 280px;
+	border-radius: 33px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding: 2rem !important;
+}
+.top-container{
+	display: flex;
+	align-items: center;
+}
+.profile-image{
+	border-radius: 10px;
+	border: 2px solid #5957f9;
+}
+.name{
+	font-size: 22px;
+	font-weight: bold;
+	color: #272727;
+	position: relative;
+	top: 8px;
+}
+.mail{
+	font-size: 14px;
+	color: grey;
+	position: relative;
+	top: 2px;
+}
+.middle-container{
+	background-color: #eee;
+	border-radius: 12px;
+
+}
+.middle-container:hover {
+	border: 1px solid #5957f9;
+}
+.dollar-div{
+	background-color: #5957f9;
+	padding: 12px;
+	border-radius: 10px;
+}
+.round-div{
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.dollar{
+	font-size: 16px !important;
+	color: #5957f9 !important;
+	font-weight: bold !important;
+}
+
+
+.current-balance{
+	font-size: 15px;
+	color: #272727;
+	font-weight: bold;
+}
+.amount{
+	color: #5957f9;
+	font-size: 16px;
+	font-weight: bold;
+}
+.dollar-sign{
+	font-size: 16px;
+	color: #272727;
+	font-weight: bold;
+}
+
+.recent-border{
+	border-left: 2px solid #5957f9;
+	display: flex;
+	align-items: center;
+
+}
+.recent-border:hover {
+	border-bottom: 1px solid #dee2e6!important;
+}
+
+.recent-orders{
+	font-size: 16px;
+	font-weight: 700;
+	color: #5957f9;
+	margin-left: 2px;
+}
+
+.wishlist{
+	font-size: 16px;
+	font-weight: 700;
+	color: #272727;
+
+}
+.wishlist-border:hover{
+	border-bottom: 1px solid #dee2e6!important;
+}
+.fashion-studio{
+	font-size: 16px;
+	font-weight: 700;
+	color: #272727;
+}
+.fashion-studio-border:hover {
+	border-bottom: 1px solid #dee2e6!important;
+}
+.editicon{
+    width: 23px;
+   position: absolute;
+   top: 20px;
+   cursor:pointer;
+   right: 47px;
+}
+.editicon img{
+  width: 100%;
+}
+
+/* repsonsive style  */
+
+@media screen and (max-width:975px) {
+  .navlinks{
+    margin-left: 10px;
+  }
+  .subscribe{
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 11px;
+  }
+
+}
+@media screen and (max-width:762px) {
+  .flip{
+    flex-direction: column-reverse;
+  }
+  .leftbar{
+    padding: 0;
+    margin-top: 14px;
+  }
+  .popov{
+    right: 0px;
+  }
+  .header{
+    display: none;
+  }
+  .Category{
+    display: none;
+  }
+}
+@media screen and (max-width:564px) {
+ .sec{
+  padding: 21px;
+ }
+.hidetwolink{
+  display: none;
+}
+.coloricon{
+  margin-left: 0!important;
+}
+.name{
+  padding-left: 10px;
+}
+.media-body{
+flex-direction:column;
+align-items: start!important;
+}
+.timestamp{
+  font-size: 10px;
+  margin-top: 6px;
+}
+.comm{
+  margin-top: 0px!important;
+}
+.footersm{
+  width: 64%!important;
+}
+
+
+}

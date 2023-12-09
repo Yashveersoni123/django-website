@@ -1,0 +1,89 @@
+ {% extends "users/header.html" %}
+
+ {% block body%}
+ {% load static %}
+      <!-- Header with hero image -->
+      <header class="header">
+        <div class="container">
+          <h1 class="knockout">Moments captured-memories shared</h1>
+        </div>
+      </header>
+    </div>
+    <!-- Blog Post Previews Section -->
+    
+    <section class="container mt-4">
+      <form class="row justify-content-between g-3">
+        <div class="col-md-2 Category">
+          <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </button>
+          <ul class="dropdown-menu bg-dark text-white
+           dropdown-menu-dark">
+            <li style="cursor:pointer"><span class="mx-3 " >All</span></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <input type='hidden' id="currentpage" value="{{currentpage}}"></input>
+          <input class="form-control me-2 media border" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-md-2 Category">
+          <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by
+          </button>
+          <ul class="dropdown-menu bg-dark text-white dropdown-menu-dark">
+            <li style="cursor:pointer"><span class="mx-3 " >All</span></li>
+          </ul>
+        </div>
+      </form>
+      <div class="row mt-3" style="grid-row-gap:28px">
+        <!-- Example blog post cards -->
+        {% for article in data %}
+          <div class="col-md-4 article" style="grid-row-gap:29px" >
+            <a class="hreftag" href="/single/{{article.slug}}" class="card dark" >
+              <img src="media/{{article.thumbnail}}" class="card-img-top" alt="Blog Post Image" />
+              <div class="card-body p-3 usersidebar" style="    height: 10rem;">
+                <h5 class="card-title ">{{article.title}}</h5>
+                <p class="card-text">
+                  {{article.short_description|truncatechars:100}}
+                </p>
+              </div>
+            </a>
+          </div>
+         {% endfor %}
+        <!-- Add more cards here for other blog posts -->
+      </div>
+      <nav aria-label="..." class="mt-3">
+        <ul class="pagination d-flex justify-content-center">
+          {% if data.has_previous %}
+          <li class="page-item ">
+            <a class="page-link pagenumber hover" href="/?page={{data.previous_page_number}}" tabindex="-1">Preview</a>
+          </li>
+          {% endif %}
+          {% for total in totalpagelist %}
+          {% if not forloop.last %}
+            <li class="page-item " >
+              <a class="page-link pagenumber {% if total == currentpage %}activelinks{% endif %} " href="/?page={{ total }}"  tabindex="-1">{{ total }}</a>
+            </li>
+          {% endif %}
+          {% if forloop.last %}
+            <li class="page-item ">
+              <a class="page-link pagenumber "  tabindex="-1">...</a>
+            </li>
+           <li class="page-item  "><a class="page-link pagenumber {% if total == currentpage %}activelinks{% endif %}" href="/?page={{lastpage}}">{{lastpage}}</a></li>
+
+          {% endif %}
+
+        {% endfor %}
+      
+          {% if data.has_next %}
+          <li class="page-item">
+            <a class="page-link pagenumber hover"  href="/?page={{data.next_page_number}}">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </section>
+    <!-- Bootstrap JS and jQuery (needed for Bootstrap) -->
+    
+{% endblock %} 
+

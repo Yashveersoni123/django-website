@@ -1,0 +1,25 @@
+{% extends "dashboard/header.html" %}
+
+{% block body %}
+  <div class="container">
+    <h1 class="text-center mt-4 mb-4">Comments Moderation</h1>
+    <div class="comments-section">
+      <div class="comment-item">
+        <p><strong>User123:</strong> This is a sample comment. Lorem ipsum dolor sit amet.</p>
+        <div class="comment-actions">
+          <button class="btn btn-success">Approve</button>
+          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+      <div class="comment-item">
+        <p><strong>User456:</strong> Another comment example. Consectetur adipiscing elit.</p>
+        <div class="comment-actions">
+          <button class="btn btn-success">Approve</button>
+          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock body %}
